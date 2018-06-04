@@ -63,6 +63,18 @@
       </dependency>
 
       <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>19.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.renjin.cran</groupId>
+          <artifactId>zoo</artifactId>
+          <version>1.7-14-b17</version>
+      </dependency>
+
+      <dependency>
           <groupId>org.renjin.cran</groupId>
           <artifactId>downloader</artifactId>
           <version>0.4-b61</version>
