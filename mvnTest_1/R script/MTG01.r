@@ -14,7 +14,7 @@ LGDScore <- LGDScore_t + intercept_lgd
 LGD <- 1/(1 + exp(-LGDScore))
 LGD <- cbind(data_lgd[ ,c(1:3)], LGD)
 
-print("##################  LGD result  #################")
+print("----------------------------  LGD result  -------------------------------")
 print(head(LGD))
 
 # PD -----------------------
@@ -46,7 +46,7 @@ ETA <- data.frame(ETA_C_30, ETA_C_60, ETA_C_DEF, ETA_C_PO,
                   ETA_60_C, ETA_60_30, ETA_60_DEF, ETA_60_PO)
 ETA <- cbind(data_pd[ ,c(1,2)], ETA)
 
-print("##################  ETA result  #################")
+print("-------------------------------  ETA result  -------------------------------")
 print(head(ETA))
 ## PD ====================
 SumExpETA_Current <- exp(ETA_C_30) + exp(ETA_C_60) + exp(ETA_C_DEF) + exp(ETA_C_PO)
@@ -75,9 +75,9 @@ PD <- data.frame(PD_C_C, PD_C_30, PD_C_60, PD_C_DEF, PD_C_PO,
                  PD_60_C, PD_60_30, PD_60_60, PD_60_DEF, PD_60_PO)
 PD <- cbind( data_pd[ ,c(1,2)], PD)
 
-print("##################  PD result  #################")
+print("------------------------------- PD result  -------------------------------")
 print(head(PD))
 PD[is.na(PD)] <- 0
-print("##################  PD columnsume result  #################")
+print("------------------------------- PD columnsume result -------------------------------")
 
 print(colSums(PD[,-c(1:2)]))

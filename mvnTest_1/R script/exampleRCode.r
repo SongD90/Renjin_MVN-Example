@@ -24,10 +24,8 @@ region <- read.csv("C:/Users/hsong/eclipse-workspace/mvnTest_1/RegionMapping.csv
 
 # add RegionName to loan data
 loan <- merge(loan, region, by.x = "RF_STATE", by.y = "State", all.x = TRUE)
-print(loan[, c("RF_STATE", "RegionName" )])
 # add US level, if RegionName==NA, set it to US.
 levels(loan$RegionName) <- c(levels(loan$RegionName), "US")
-print(loan[, c("RF_STATE", "RegionName" )])
 loan$RegionName[is.na(loan$RegionName)] <- "US"
 
 print("----------------- region maping result----------------------------------------------")
@@ -90,8 +88,12 @@ unemp_loan <- unemp[ , names(unemp) %like% paste("FLBR.",data_loan$RegionName, s
 
 data_lgd_macro_loan <- data_lgd_macro[ ,
                                        -which(!(names(data_lgd_macro)%like% paste("FLBR.",data_loan$RegionName, sep="")))[3:7]]
-
+print("------------------- LGD macro data -------------------------------")
 print(head(data_lgd_macro_loan))
+
+# LGD data is matched
+
+
 # HS
 # now for each loan it will generate data for all period.
 # loanlevel data
@@ -105,8 +107,8 @@ data_lgd_t <- data.frame(
 data_lgd <- merge(data_lgd_t, data_lgd_macro_loan, by="Mnemonic")
 
 data_lgd <- data_lgd[ ,c(1:3, 5, 4, 6)]
-
-
+print("------------------- LGD Data ---------------------------------")
+print(head(data_lgd))
 ## ----------  pd data  --------------------
 
 ### regional variables
@@ -137,6 +139,8 @@ data_pd_t <- data.frame(
 )
 
 data_pd <- merge(data_pd_t, data_pd_macro_loan, by="Mnemonic")
+print("-------------------- data_pd --------------------------")
+print(head(data_pd))
 
 # add intercept column
 data_pd$Intercept <- 1
