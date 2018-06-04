@@ -22,15 +22,15 @@ public class RenjinExample1 {
 		// Reset output to console
          engine.getContext().setWriter(new PrintWriter(System.out));
 		
-		engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1\\R script\\MTGMacro.r"));
+		engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1_git\\Renjin_MVN-Example\\mvnTest_1\\R script\\MTGMacro.r"));
 
 
 	//2. MTG_LoanData.r example ( data.table package is not working.)
-		engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1\\R script\\exampleRCode.r"));
+		engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1_git\\Renjin_MVN-Example\\mvnTest_1\\R script\\exampleRCode.r"));
 	//3. mortgage_v1.0 r example. ( don't have library() )
-		engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1\\R script\\MTG01.r"));
+		engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1_git\\Renjin_MVN-Example\\mvnTest_1\\R script\\MTG01.r"));
 
 	//4. package loading test. 5/31 failed
-        engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1\\R script\\Tutorial_dplyr.r"));
+        engine.eval(new java.io.FileReader("C:\\Users\\hsong\\eclipse-workspace\\mvnTest_1_git\\Renjin_MVN-Example\\mvnTest_1\\R script\\Tutorial_dplyr.r"));
 	}
 }
