@@ -67,7 +67,7 @@ print(data_loan)
 HPI_at_ORGDate <- rhpi[(year(rhpi$Mnemonic) == year(data_loan$ORIGINATIONDATE) & quarter(rhpi$Mnemonic) == quarter(data_loan$ORIGINATIONDATE)),
                        names(rhpi)%like%data_loan$RF_STATE]
 
-# HPI_at_ORGDate <- 98.259
+# HPI_at_ORGDate <- 97.181
 print("------------------------------ HPI_at_ORGDate data check ----------------------------------------")
 print(HPI_at_ORGDate)
 
@@ -81,9 +81,9 @@ print(data_loan$CLIENTINSTRUMENTID)
 print("-------------------------------- rhpi name -----------------------------------------------------")
 print(names(rhpi) %like% data_loan$RegionName)
 print("-------------------------------- rhpi -----------------------------------------------------")
-print(rhpi[ , names(rhpi) %like% data_loan$RegionName])
+print(head(rhpi[ , names(rhpi) %like% data_loan$RegionName]))
 print("-------------------------------- HPI_IND -----------------------------------------------------")
-print((HPI_IND))
+print(head(HPI_IND))
 
 ### UNEMP
 unemp_loan <- unemp[ , names(unemp) %like% paste("FLBR.",data_loan$RegionName, sep="")]
