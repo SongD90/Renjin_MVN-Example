@@ -3,21 +3,23 @@ print("############ dplr #####################")
  library(dplyr)
 # download dataset
  library(downloader)
-
 url <- "https://raw.githubusercontent.com/genomicsclass/dagdata/master/inst/extdata/msleep_ggplot2.csv"
 filename <- "msleep_ggplot2.csv"
-if (!file.exists(filename)) download(url,filename)
-msleep <- read.csv("msleep_ggplot2.csv")
-head(msleep)
+print("checkpoint")
+#if (!file.exists(filename)) download(url,filename)
+msleep <- read.csv("C:/Users/hsong/eclipse-workspace/mvnTest_1_git/Renjin_MVN-Example/mvnTest_1/msleep_ggplot2.csv", header=TRUE)
+print("--------------- print msleep data ----------------------------")
+print(head(msleep))
 
 ###
 
 # select (dataset, colname1, colname2, colname3, ..)
-sleepData <- select(msleep, name, sleep_total)
-head(sleepData)
+sleepData <- select(msleep, name)
+print("--------------- select 1 ------------------------------------")
+print(head(sleepData))
 ## select a range of columns
 head(select(msleep, name:order, sleep_total))
-## To select all columns that start with the character string �sl�, use the function starts_with()
+## To select all columns that start with the character string sl, use the function starts_with()
 head(select(msleep, starts_with("sl")))
 
 # filter()

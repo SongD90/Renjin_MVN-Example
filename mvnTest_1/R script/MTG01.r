@@ -8,7 +8,8 @@ intercept_lgd <- c(-0.23391)
 
 #LGDScore_t <- t(t(data_lgd[ -1, -c(1:3)]) * coeff_lgd)
 LGDScore_t <- as.matrix(data_lgd[ , -c(1:3)] )%*% as.matrix(coeff_lgd)
-print(LGDScore_t)
+print("----------------------------  LGD score  -------------------------------")
+print(head(LGDScore_t))
 
 LGDScore <- LGDScore_t + intercept_lgd
 LGD <- 1/(1 + exp(-LGDScore))
@@ -79,5 +80,4 @@ print("------------------------------- PD result  ------------------------------
 print(head(PD))
 PD[is.na(PD)] <- 0
 print("------------------------------- PD columnsume result -------------------------------")
-
 print(colSums(PD[,-c(1:2)]))
